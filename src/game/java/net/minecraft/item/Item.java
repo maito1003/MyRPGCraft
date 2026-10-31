@@ -1023,6 +1023,7 @@ public class Item {
 		registerItem(423, (String) "mutton", (new ItemFood(2, 0.3F, true)).setUnlocalizedName("muttonRaw"));
 		registerItem(424, (String) "cooked_mutton", (new ItemFood(6, 0.8F, true)).setUnlocalizedName("muttonCooked"));
 		registerItem(425, (String) "banner", (new ItemBanner()).setUnlocalizedName("banner"));
+		registerItem(426, (String) "kenshi_dagger", (new ItemKenshiDagger()).setUnlocalizedName("kenshiDagger"));
 		registerItem(427, (String) "spruce_door", (new ItemDoor(Blocks.spruce_door)).setUnlocalizedName("doorSpruce"));
 		registerItem(428, (String) "birch_door", (new ItemDoor(Blocks.birch_door)).setUnlocalizedName("doorBirch"));
 		registerItem(429, (String) "jungle_door", (new ItemDoor(Blocks.jungle_door)).setUnlocalizedName("doorJungle"));
