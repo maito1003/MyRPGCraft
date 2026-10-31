@@ -1,0 +1,33 @@
+name: Build MyRPGCraft WASM
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: microsoft
+          java-version: '17'
+
+      - name: Make Gradle executable
+        run: chmod +x gradlew
+
+      - name: Build WASM client
+        run: ./gradlew :target_teavm_wasm_gc:makeMainWasmClientBundle --no-daemon -Dorg.gradle.jvmargs="-Xms256m -Xmx2G -XX:MaxMetaspaceSize=512m"
+
+      - name: Upload build outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: MyRPGCraft-WASM-build
+          path: |
+            target_teavm_wasm_gc/build/**
+          if-no-files-found: warn
+          retention-days: 7
